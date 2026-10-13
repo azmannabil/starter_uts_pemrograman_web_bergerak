@@ -58,10 +58,11 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                       hintText: 'Contoh: Membuat halaman profil',
                     ),
                     textCapitalization: TextCapitalization.sentences,
-                    validator: (String? value) =>
-                        value == null || value.trim().isEmpty
-                            ? 'Judul tugas wajib diisi.'
-                            : null,
+                    validator:
+                        (String? value) =>
+                            value == null || value.trim().isEmpty
+                                ? 'Judul Wajib Diisi. (Spasi tepi tidak membuat nilai dianggap terisi)'
+                                : null,
                   ),
                   const SizedBox(height: 14),
                   TextFormField(
@@ -72,10 +73,11 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                       hintText: 'Contoh: Pemrograman Perangkat Bergerak',
                     ),
                     textCapitalization: TextCapitalization.words,
-                    validator: (String? value) =>
-                        value == null || value.trim().isEmpty
-                            ? 'Mata kuliah wajib diisi.'
-                            : null,
+                    validator:
+                        (String? value) =>
+                            value == null || value.trim().isEmpty
+                                ? 'Mata Kuliah Wajib Diisi. (Spasi tepi tidak membuat nilai dianggap terisi)'
+                                : null,
                   ),
                 ],
               ),

@@ -15,16 +15,17 @@ class Task {
   final String course;
   final bool isDone;
 
-  Task copyWith({bool? isDone}) => Task(
-        id: id,
-        title: title,
-        course: course,
-        isDone: isDone ?? this.isDone,
-      );
+  Task copyWith({bool? isDone}) =>
+      Task(id: id, title: title, course: course, isDone: isDone ?? this.isDone);
 
   Map<String, Object?> toJson() {
     // TODO 1a: kembalikan Map untuk id, title, course, dan isDone.
-    return <String, Object?>{};
+    return <String, Object?>{
+      'id': id,
+      'title': title,
+      'course': course,
+      'isDone': isDone,
+    };
   }
 
   factory Task.fromJson(Map<String, dynamic> json) {

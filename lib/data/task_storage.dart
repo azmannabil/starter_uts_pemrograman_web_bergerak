@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
-import '../models/task.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../models/task.dart';
 
 /// Titik akses data tugas.
 ///
@@ -12,7 +13,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 class TaskStorage {
   TaskStorage({this.loadDelay = const Duration(milliseconds: 450)});
 
-  static List<Task> _memory = <Task>[];
   static const String _storageKey = 'pratikum_task';
   final Duration loadDelay;
 
@@ -59,8 +59,6 @@ class TaskStorage {
 
     final bool saved = await preferences.setString(_storageKey, encoded);
 
-    final String? check = preferences.getString(_storageKey);
-
     if (!saved) {
       throw StateError('Daftar tugas gagal disimpan.');
     }
@@ -76,5 +74,5 @@ class TaskStorage {
   }
 
   /// Hanya untuk mengisolasi pengujian lokal.
-  static void resetMemoryForTest() => _memory = <Task>[];
+  static void resetMemoryForTest() {}
 }
